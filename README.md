@@ -10,8 +10,8 @@ Implement the TODO's in `src/src.h`. Then the program and make sure all the asse
 
 Compilation script:
 
-```bash
-gcc src\main.c src\str.c -Isrc -o main
+```sh
+gcc src/main.c src/str.c -Isrc -o main
 ```
 
 ## Part 2
