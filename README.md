@@ -16,7 +16,7 @@ gcc src\main.c src\str.c -Isrc -o main
 
 ## Part 2
 
-Fix all memory leaks in the program.
+Fix all memory leaks in the program. You can look into a tool like `valgrind` for help. From my testing AI seems smart enough to find the memory leaks in this scenario.
 
 ## Part 3 - For fun
 

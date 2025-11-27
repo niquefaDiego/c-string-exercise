@@ -15,23 +15,23 @@ typedef struct {
 } str;
 
 // Creates a str from a null-terminated cstring,
-// be mindful that the cstring must outlive the str.
-str str_from_cstr(char* cstr);
+// be mindful that we are duplicating the data.
+str str_from_cstr(const char* cstr);
 
 // Returns a new str with the concatenation of a and b.
 str str_concat(str a, str b);
 
 // Appends c into s, resizing if necessary.
-str str_append_char(str s, char c);
+void str_append_char(str *s, char c);
 
 // Appends x into s, resizing if necessary.
-str str_append_str(str s, str x);
+void str_append_str(str *s, const str x);
 
 // Splits s into tokens by delimiter, returns number of tokens.
-size_t str_split_into_cstrings(str s, char delimiter, char** tokens, size_t *token_length);
+size_t str_split_into_cstrings(const str s, char delimiter, char*** tokens, size_t **token_length);
 
 // Splits s into tokens by delimiter, returns number of tokens.
-size_t str_split(str s, char delimiter, str* tokens);
+size_t str_split(const str s, char delimiter, str* tokens);
 
 #ifdef __cplusplus
 }

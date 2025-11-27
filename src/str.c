@@ -1,12 +1,15 @@
 #include "str.h"
 #include <stddef.h>
 #include <string.h>
+#include <stdlib.h>
 
-str str_from_cstr(char* cstr)
+str str_from_cstr(const char* cstr)
 {
     size_t len = strlen(cstr);
+    char *data = (char*)malloc(len + 1);
+    memcpy(data, cstr, len + 1);
     return (str) {
-        .data = cstr,
+        .data = data,
         .length = len,
         .capacity = len + 1
     };
@@ -18,26 +21,23 @@ str str_concat(str a, str b)
     return a;
 }
 
-str str_append_char(str s, char c)
+void str_append_char(str *s, char c)
 {
     // TODO
-    return s;
 }
 
-str str_append_str(str s, str x)
+void str_append_str(str *s, const str x)
 {
     // TODO
-    return s;
 }
 
-
-size_t str_split_into_cstrings(str s, char delimiter, char** tokens, size_t *token_length)
+size_t str_split_into_cstrings(const str s, char delimiter, char*** tokens, size_t **token_length)
 {
     // TODO:
     return 0;
 }
 
-size_t str_split(str s, char delimiter, str* tokens)
+size_t str_split(const str s, char delimiter, str* tokens)
 {
     // TODO:
     return 0;
